@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('data/resumenes.json');
+    // Ruta relativa explícita para GitHub Pages
+    const res = await fetch('./data/resumenes.json');
+    if (!res.ok) throw new Error('No se encontró resumenes.json');
     const resumenes = await res.json();
     
     // 1. Poblar filtros dinámicamente
@@ -60,15 +62,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     selSub.addEventListener('change', filtrar);
     
   } catch (e) {
-    document.getElementById('grid-resumenes').innerHTML = '<p class="loading">Error al cargar el catálogo. Revisá que data/resumenes.json exista.</p>';
+    console.error('Error cargando catálogo:', e);
+    document.getElementById('grid-resumenes').innerHTML = '<p class="loading">⚠️ Error al cargar. Revisá que data/resumenes.json exista.</p>';
   }
 });
 
 // Función para comprar: abre WhatsApp con el resumen pre-seleccionado
 window.comprar = (nombre) => {
-  const telefono = '59898362625'; // ← CAMBIÁ POR TU NÚMERO REAL
+  const telefono = '59898362625'; // ← Tu número (ya está puesto)
   
-  // Emojis en formato Unicode (más compatible)
+  // Emojis con Unicode escapes CORRECTOS (con barra invertida \)
   const mano = '\uD83D\uDC4B';    // 👋
   const libro = '\uD83D\uDCDA';   // 📚
   const persona = '\uD83D\uDC64'; // 👤
@@ -86,7 +89,5 @@ ${clip} *Comprobante:* Ya te adjunto la foto del pago.`;
 
   const link = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
   window.open(link, '_blank');
-};
-  
-  window.open(link, '_blank');
+  // ← Sin líneas duplicadas acá
 };
