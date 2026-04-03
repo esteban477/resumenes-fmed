@@ -59,15 +59,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     selMat.addEventListener('change', filtrar);
     selSub.addEventListener('change', filtrar);
     
-    // 4. Función comprar (copia nombre y baja al form)
-    window.comprar = (nombre) => {
-      navigator.clipboard.writeText(nombre).then(() => {
-        alert(`✅ "${nombre}" copiado. Pegalo en el formulario de abajo.`);
-        document.getElementById('pedido').scrollIntoView({ behavior: 'smooth' });
-      });
-    };
-    
   } catch (e) {
     document.getElementById('grid-resumenes').innerHTML = '<p class="loading">Error al cargar el catálogo. Revisá que data/resumenes.json exista.</p>';
   }
 });
+
+// Función para comprar: abre WhatsApp con el resumen pre-seleccionado
+window.comprar = (nombre) => {
+  const mensaje = `Hola Esteban! 👋 Me interesa comprar un resumen de FMED-UdelaR.%0A%0A📚 *Resumen:* ${nombre}%0A👤 *Nombre:* %0A📧 *Email:* %0A📎 *Comprobante:* Ya te adjunto la foto del pago.`;
+  const link = `https://wa.link/mil4jw?text=${encodeURIComponent(mensaje)}`;
+  window.open(link, '_blank');
+};
