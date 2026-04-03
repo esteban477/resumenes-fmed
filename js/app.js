@@ -66,7 +66,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Función para comprar: abre WhatsApp con el resumen pre-seleccionado
 window.comprar = (nombre) => {
-  const mensaje = `Hola Esteban! 👋 Me interesa comprar un resumen de FMED-UdelaR.%0A%0A📚 *Resumen:* ${nombre}%0A👤 *Nombre:* %0A📧 *Email:* %0A📎 *Comprobante:* Ya te adjunto la foto del pago.`;
-  const link = `https://wa.link/mil4jw?text=${encodeURIComponent(mensaje)}`;
+  // ⚠️ REEMPLAZÁ ESTE NÚMERO POR EL TUYO (código de país + número, sin espacios ni guiones)
+  const telefono = '59898362625'; 
+  
+  const mensaje = `Hola Esteban! 👋 Me interesa comprar un resumen de FMED-UdelaR.
+
+📚 *Resumen:* ${nombre}
+👤 *Nombre:* 
+📧 *Email:* 
+💳 *Alias:* resfmed.mp
+📎 *Comprobante:* Ya te adjunto la foto del pago.`;
+
+  // Usamos wa.me (API oficial) en vez de wa.link para permitir texto dinámico
+  const link = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  
   window.open(link, '_blank');
 };
