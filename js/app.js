@@ -69,25 +69,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Función para comprar: abre WhatsApp con el resumen pre-seleccionado
 window.comprar = (nombre) => {
-  const telefono = '59898362625'; // ← Tu número (ya está puesto)
+  const telefono = '59898362625';
   
-  // Emojis con Unicode escapes CORRECTOS (con barra invertida \)
-  const mano = '\uD83D\uDC4B';    // 👋
-  const libro = '\uD83D\uDCDA';   // 📚
-  const persona = '\uD83D\uDC64'; // 👤
-  const email = '\uD83D\uDCE7';   // 📧
-  const tarjeta = '\uD83D\uDCB3'; // 💳
-  const clip = '\uD83D\uDCEE';    // 📎
+  // Mensaje SIN emojis, usando solo texto y asteriscos para negrita
+  // WhatsApp interpreta *texto* como negrita automáticamente
+  const mensaje = 
+    "Hola Esteban! Me interesa comprar un resumen de FMED-UdelaR.\n\n" +
+    "RESUMEN: " + nombre + "\n" +
+    "NOMBRE: \n" +
+    "EMAIL: \n" +
+    "PREX: 22980064\n" +
+    "COMPROBANTE: Ya te adjunto la foto del pago.";
 
-  const mensaje = `Hola Esteban! ${mano} Me interesa comprar un resumen de FMED-UdelaR.
-
-${libro} *Resumen:* ${nombre}
-${persona} *Nombre:* 
-${email} *Email:* 
-${tarjeta} *Prex:* 22980064
-${clip} *Comprobante:* Ya te adjunto la foto del pago.`;
-
-  const link = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  const link = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
+  
   window.open(link, '_blank');
-  // ← Sin líneas duplicadas acá
+};
 };
