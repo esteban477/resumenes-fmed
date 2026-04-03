@@ -66,19 +66,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Función para comprar: abre WhatsApp con el resumen pre-seleccionado
 window.comprar = (nombre) => {
-  // ⚠️ REEMPLAZÁ ESTE NÚMERO POR EL TUYO (código de país + número, sin espacios ni guiones)
-  const telefono = '59898362625'; 
+  const telefono = '59898362625'; // ← CAMBIÁ POR TU NÚMERO REAL
   
-  const mensaje = `Hola Esteban! 👋 Me interesa comprar un resumen de FMED-UdelaR.
+  // Emojis en formato Unicode (más compatible)
+  const mano = '\uD83D\uDC4B';    // 👋
+  const libro = '\uD83D\uDCDA';   // 📚
+  const persona = '\uD83D\uDC64'; // 👤
+  const email = '\uD83D\uDCE7';   // 📧
+  const tarjeta = '\uD83D\uDCB3'; // 💳
+  const clip = '\uD83D\uDCEE';    // 📎
 
-📚 *Resumen:* ${nombre}
-👤 *Nombre:* 
-📧 *Email:* 
-💳 *Prex:* 22980064
-📎 *Comprobante:* Ya te adjunto la foto del pago.`;
+  const mensaje = `Hola Esteban! ${mano} Me interesa comprar un resumen de FMED-UdelaR.
 
-  // Usamos wa.me (API oficial) en vez de wa.link para permitir texto dinámico
+${libro} *Resumen:* ${nombre}
+${persona} *Nombre:* 
+${email} *Email:* 
+${tarjeta} *Prex:* 22980064
+${clip} *Comprobante:* Ya te adjunto la foto del pago.`;
+
   const link = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(link, '_blank');
+};
   
   window.open(link, '_blank');
 };
