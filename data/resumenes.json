@@ -1,0 +1,18 @@
+[
+  {
+    "id": "fisio-cv-01",
+    "materia": "Fisiología",
+    "submateria": "Sistema Cardiovascular",
+    "titulo": "Ciclo cardíaco, presiones y gasto",
+    "descripcion": "Esquemas de fases, curvas de presión, regulación nerviosa y hormonal.",
+    "precio": 850
+  },
+  {
+    "id": "anat-mus-01",
+    "matería": "Anatomía",
+    "submateria": "Sistema Muscular",
+    "titulo": "Músculos del tronco y extremidades",
+    "descripcion": "Origen, inserción, inervación y acción. Tablas comparativas incluidas.",
+    "precio": 950
+  }
+]
