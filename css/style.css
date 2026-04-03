@@ -38,7 +38,47 @@ header { background: var(--card); box-shadow: var(--shadow); position: sticky; t
 .btn-buy:hover { background: var(--primary-hover); }
 .loading { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 2rem; }
 
-.pedido-section { padding: 3rem 0; text-align: center; }
-.form-wrapper { background: var(--card); padding: 1rem; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 1.5rem; }
+.pedido-section { text-align: left; padding: 3rem 0; }
+.paso-compra { display: flex; gap: 1rem; align-items: flex-start; margin: 1.5rem 0; }
+.paso-numero { 
+  min-width: 32px; height: 32px; 
+  background: var(--primary); color: white; 
+  border-radius: 50%; 
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+}
+.datos-pago { 
+  background: var(--accent); padding: 1rem; border-radius: var(--radius); 
+  margin: 2rem 0; border-left: 4px solid var(--primary);
+}
+.datos-pago code { 
+  background: white; padding: 0.2rem 0.5rem; border-radius: 4px; 
+  font-weight: 600; color: var(--primary);
+}
+.btn-whatsapp {
+  display: inline-block;
+  background: #25d366;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+.btn-whatsapp:hover {
+  background: #128c7e;
+  transform: translateY(-2px);
+}
+
 footer { background: var(--card); padding: 2rem 0; text-align: center; color: var(--muted); margin-top: 2rem; }
 .hidden { display: none; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .filters { flex-direction: column; }
+  .grid-catalogo { grid-template-columns: 1fr; }
+}
