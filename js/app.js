@@ -74,7 +74,7 @@ window.comprar = (nombre) => {
 📚 *Resumen:* ${nombre}
 👤 *Nombre:* 
 📧 *Email:* 
-💳 *Alias:* resfmed.mp
+💳 *Prex:* 22980064
 📎 *Comprobante:* Ya te adjunto la foto del pago.`;
 
   // Usamos wa.me (API oficial) en vez de wa.link para permitir texto dinámico
