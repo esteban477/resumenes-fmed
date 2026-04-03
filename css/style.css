@@ -82,3 +82,31 @@ footer { background: var(--card); padding: 2rem 0; text-align: center; color: va
   .filters { flex-direction: column; }
   .grid-catalogo { grid-template-columns: 1fr; }
 }
+
+/* Sección de Contacto */
+.contacto-section { 
+  padding: 3rem 0; 
+  text-align: center; 
+  background: var(--card); 
+  margin-top: 2rem; 
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.contacto-section h2 { 
+  margin-bottom: 1rem; 
+  color: var(--primary); 
+}
+.contacto-section p { 
+  margin-bottom: 0.5rem; 
+  color: var(--text);
+}
+.email-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.email-link:hover {
+  border-bottom-color: var(--primary);
+}
